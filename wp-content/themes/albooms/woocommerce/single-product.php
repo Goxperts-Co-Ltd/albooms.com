@@ -65,12 +65,12 @@ $available_variations = $product->get_available_variations();
 							<div id="collapse12" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
 								<div class="col-md-5">		
-							      <?php foreach($available_variations as $key => $sizes) :?>
-									 <div class="cfr-item">
-										<input type="radio" name="pm" id="<?php echo $sizes['attributes']['attribute_sizes']; ?>" value="<?php echo $sizes['display_price'];?>">
-										<label for="<?php echo $sizes['attributes']['attribute_sizes']; ?>"><?php echo $sizes['attributes']['attribute_sizes']; echo ' - ('; echo $sizes['price_html']; echo ')'; ?></label>
-									 </div>
-								    <?php endforeach; ?>
+									<select  name="sizes" id="sizes">
+										<option value="">Select Sizes</option>
+										<?php foreach($available_variations as $key => $sizes) :?>
+										<option value="<?php echo $sizes['display_price'];?>"><?php echo $sizes['attributes']['attribute_sizes']; echo ' - ('; echo $sizes['price_html']; echo ')'; ?></option>
+										<?php endforeach; ?>
+									</select>
 						      </div>
 							</div>
 						  </div>

@@ -96,6 +96,7 @@ function wp_get_shop_menu_array($current_menu) {
 }
 
 
+
 	// HOOKS ADMIN
 //main menu
 // function wp_get_menu_array($current_menu) {

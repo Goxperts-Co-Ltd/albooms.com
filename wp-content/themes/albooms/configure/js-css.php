@@ -10,7 +10,8 @@
   		wp_enqueue_style('tether-css', get_template_directory_uri() . '/assets/css/jquery-ui.min.css', array(), null, 'all' );
   		wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array(), null, 'all' );
   		wp_enqueue_style('bootstrap-grid', get_template_directory_uri() . '/assets/css/animate.css', array(), null, 'all' );
-  		wp_enqueue_style('bootstrap-reboot', get_template_directory_uri() . '/assets/css/style.css', array(), null, 'all' );
+		wp_enqueue_style('bootstrap-reboot', get_template_directory_uri() . '/assets/css/style.css', array(), null, 'all' );
+		wp_enqueue_style('overide', get_template_directory_uri() . '/style.css', array(), null, 'all' );
 	}
 	add_action('wp_enqueue_scripts', '_add_stylesheets');
 

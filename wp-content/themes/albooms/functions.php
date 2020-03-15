@@ -15,7 +15,85 @@
 	// Remove default link around product entries
 	remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
 
+//Social Media footer menu
+function wp_get_social_media_footer_menu_array($current_menu) {
 
+    $array_menu = wp_get_nav_menu_items($current_menu);
+ 
+    foreach ($array_menu as $m) {  
+		if (empty($m->menu_item_parent)) {     
+			if($m->title == 'Instagram'){
+				echo '<a href="';
+				echo $m->url;
+			    echo '" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>';
+			}elseif($m->title == 'Pinterest'){
+				echo '<a href="';
+				echo $m->url;
+				echo '" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>';
+			}elseif($m->title == 'Facebook'){
+				echo '<a href="';
+				echo $m->url;
+				echo '" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>';
+			}elseif($m->title == 'Twitter'){
+				echo '<a href="';
+				echo $m->url;
+				echo '" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>';
+			}else{
+				//do nothing
+			}
+        }
+	}
+	
+	return $menu;
+}
+
+//main menu
+function wp_get_main_menu_array($current_menu) {
+
+    $array_menu = wp_get_nav_menu_items($current_menu);
+ 
+    foreach ($array_menu as $m) {  
+		if (empty($m->menu_item_parent)) { 
+			if($m->title == 'Home'){
+				echo '<li><a href="';
+				echo  get_home_url();
+			    echo '">Home</a></li>';
+			}else{    
+			echo '<li><a href="';
+ 			echo $m->url;
+ 			echo '">';
+			echo  $m->title;
+			echo '</a></li>';  
+		}
+	  }
+    }
+   
+    return $menu;
+}
+
+//shop menu
+function wp_get_shop_menu_array($current_menu) {
+
+    $array_menu = wp_get_nav_menu_items($current_menu);
+ 
+    foreach ($array_menu as $m) {  
+		if (empty($m->menu_item_parent)) { 
+			if($m->title == 'Home'){
+				echo '<li><a href="';
+				echo  get_home_url();
+			    echo '">Home</a></li>';
+			}else{    
+			echo '<li><a href="';
+ 			echo $m->url;
+ 			echo '">';
+			echo  $m->title;
+			echo '</a></li>';  
+		}
+	  }
+    }
+   
+    return $menu;
+}
 
 
 	// HOOKS ADMIN

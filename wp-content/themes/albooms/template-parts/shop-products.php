@@ -1,9 +1,13 @@
 <?php
 //get shop products
+$term = get_queried_object();
+$cat_slug =  $term->slug;
 $query = new WC_Product_Query(array(
-    'post_type' => 'product',						
+	'post_type' => 'product',
+	'product_cat'   =>  $cat_slug,						
     'limit' => 8,
-    'order' => 'DESC'
+	'order' => 'ASC',
+	'post_status' => 1,
     ));
     $products = $query->get_products();
 
@@ -24,7 +28,7 @@ $query = new WC_Product_Query(array(
 									<!-- <div class="tag-sale">ON SALE</div> -->
 									<img src="<?php echo wp_get_attachment_url($p_image); ?>" alt="<?php echo  $p_name;?>" title="<?php echo  $p_name;?>">
 									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+										<a href="<?php echo get_permalink($p_id);?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 									</div>
 								</div>
@@ -34,9 +38,11 @@ $query = new WC_Product_Query(array(
 								</div>
 							</div>
 						</div>
-					<?php } } ?> 
-						<div class="text-center w-100 pt-3">
+					<?php } }else{
+						echo '<p>No Albums Available!</p>';
+					} ?> 
+						<!-- <div class="text-center w-100 pt-3">
 							<button class="site-btn sb-line sb-dark">LOAD MORE</button>
-						</div>
+						</div> -->
 					</div>
 				</div>

@@ -60,8 +60,7 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Women</a></li>
+<!-- 					
 					<li><a href="#">Men</a></li>
 					<li><a href="#">Jewelry
 						<span class="new">New</span>
@@ -84,8 +83,14 @@
 							<li><a href="./contact.html">Contact Page</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Blog</a></li>
+					<li><a href="#">Blog</a></li> -->
+					<?php if (!is_woocommerce() && !is_cart() && !is_checkout()) { ?>
+						<?php  echo wp_get_main_menu_array('main menu');?>
+					<?php }else{ ?>
+						<?php  echo wp_get_shop_menu_array('shop menu');?>
+					<?php } ?>
 				</ul>
+				
 			</div>
 		</nav>
 	</header>

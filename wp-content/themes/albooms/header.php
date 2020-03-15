@@ -13,6 +13,15 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4KT6DY51LL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4KT6DY51LL');
+</script>
 <!-- Adsense -->
 <script data-ad-client="ca-pub-4712491227153267" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- end of adsense -->

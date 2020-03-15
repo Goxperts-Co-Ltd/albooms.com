@@ -34,7 +34,20 @@ $query = new WC_Product_Query(array(
 					?>
 	      			<a href="<?php echo get_permalink($p_id);?>"><img src="<?php echo wp_get_attachment_url($p_image); ?>" alt="<?php echo  $p_name;?>" title="<?php echo  $p_name;?>"></a>
 						<div class="pi-links">
-							<a href="<?php echo get_permalink($p_id);?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+						<?php
+						 echo apply_filters(
+							'woocommerce_loop_add_to_cart_link',
+							sprintf(
+								    '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>',
+									esc_url( $product->add_to_cart_url() ),
+									esc_attr( $product->get_id() ),
+									esc_attr( $product->get_sku() ),
+									$product->is_purchasable() ? 'add_to_cart_button' : '',
+									esc_attr( $product->product_type ),
+									esc_html( $product->add_to_cart_text() )
+									),
+									$product);
+						?>
 							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 						</div>
 					</div>

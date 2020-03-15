@@ -34,7 +34,20 @@ $product_cat_slug = $term->slug;
 					?>
 						<a href="<?php the_permalink($related->id);?>"><img src="<?php echo wp_get_attachment_url($related->image_id); ?>" alt="<?php echo $related->name; ?>" title="<?php echo $related->name; ?>"></a>
 						<div class="pi-links">
-							<a href="<?php the_permalink($related->id);?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+						<?php
+						 echo apply_filters(
+							'woocommerce_loop_add_to_cart_link',
+							sprintf(
+								    '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>',
+									esc_url( $related->add_to_cart_url() ),
+									esc_attr( $related->get_id() ),
+									esc_attr( $related->get_sku() ),
+									$related->is_purchasable() ? 'add_to_cart_button' : '',
+									esc_attr( $related->product_type ),
+									esc_html( $related->add_to_cart_text() )
+									),
+									$related);
+						?>
 							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 						</div>
 					</div>

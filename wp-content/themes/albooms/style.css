@@ -15,3 +15,12 @@ li.active-item a {
 div.buton {
     padding-top: 20px;
 }
+
+h5 a {
+    color: #282828!important;
+}
+
+p a {
+    color: #282828!important;
+    font-weight: bold!important;
+}

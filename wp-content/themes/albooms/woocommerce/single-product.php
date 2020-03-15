@@ -30,15 +30,15 @@ $available_variations = $product->get_available_variations();
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="product-pic-zoom">
-						<img class="product-big-img" src="<?php echo wp_get_attachment_image_src( $product->get_image_id(),'full')[0]; ?>" alt="">
+						<img class="product-big-img" src="<?php echo wp_get_attachment_image_src( $product->get_image_id(),'full')[0]; ?>" alt="<?php echo $product->get_name(); ?>" title="<?php echo $product->get_name(); ?>">
 					</div>
 					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						<div class="product-thumbs-track">
 							<!-- Featured Image as default -->
-						<div class="pt active" data-imgbigurl="<?php echo wp_get_attachment_image_src( $product->get_image_id(),'full')[0]; ?>"><img src="<?php echo wp_get_attachment_image_src( $product->get_image_id(),'full')[0]; ?>" alt=""></div>
+						<div class="pt active" data-imgbigurl="<?php echo wp_get_attachment_image_src( $product->get_image_id(),'full')[0]; ?>"><img src="<?php echo wp_get_attachment_image_src( $product->get_image_id(),'full')[0]; ?>" alt="<?php echo $product->get_name(); ?>" title="<?php echo $product->get_name(); ?>"></div>
 							<!-- Image Galleries -->
 						<?php  foreach($product->get_gallery_image_ids() as $gallery) : ?>				
-							<div class="pt" data-imgbigurl="<?php echo wp_get_attachment_image_src( $gallery,'full')[0]; ?>"><img src="<?php echo wp_get_attachment_image_src( $gallery,'full')[0]; ?>" alt=""></div>
+							<div class="pt" data-imgbigurl="<?php echo wp_get_attachment_image_src( $gallery,'full')[0]; ?>"><img src="<?php echo wp_get_attachment_image_src( $gallery,'full')[0]; ?>" alt="<?php echo $product->get_name(); ?>" title="<?php echo $product->get_name(); ?>"></div>
 						<?php endforeach; ?>
 						</div>
 					</div>
@@ -55,7 +55,7 @@ $available_variations = $product->get_available_variations();
 						<i class="fa fa-star-o fa-fade"></i>
 					</div>
 					<div class="p-review">
-						<a href=""><?php echo $product->get_review_count();?> reviews</a>|<a href="">Add your review</a>
+						<a href="#"><?php echo $product->get_review_count();?> reviews</a>|<a href="#">Add your review</a>
 					</div>
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
@@ -65,10 +65,10 @@ $available_variations = $product->get_available_variations();
 							<div id="collapse12" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
 								<div class="col-md-5">		
-							      <?php foreach($available_variations as $key => $sizes) : //print_r(); ?>
+							      <?php foreach($available_variations as $key => $sizes) :?>
 									 <div class="cfr-item">
-										<input type="radio" name="pm" id="<?php echo $option; ?>">
-										<label for="<?php echo $sizes['attributes']['attribute_sizes']; ?>"><?php echo $sizes['attributes']['attribute_sizes']; ?></label>
+										<input type="radio" name="pm" id="<?php echo $sizes['attributes']['attribute_sizes']; ?>" value="<?php echo $sizes['display_price'];?>">
+										<label for="<?php echo $sizes['attributes']['attribute_sizes']; ?>"><?php echo $sizes['attributes']['attribute_sizes']; echo ' - ('; echo $sizes['price_html']; echo ')'; ?></label>
 									 </div>
 								    <?php endforeach; ?>
 						      </div>
@@ -95,7 +95,7 @@ $available_variations = $product->get_available_variations();
 							</div>
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 								<div class="panel-body">
-									<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/cards.png" alt="">
+									<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/cards.png" alt="payment" title="payment cards">
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
 								</div>
 							</div>

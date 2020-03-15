@@ -56,7 +56,7 @@ get_header();
 				<div class="col-md-4 p-0 feature">
 					<div class="feature-inner">
 						<div class="feature-icon">
-							<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/icons/1.png" alt="#">
+							<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/icons/1.png" alt="secure payments" title="secure payments">
 						</div>
 						<h2>Fast Secure Payments</h2>
 					</div>
@@ -64,7 +64,7 @@ get_header();
 				<div class="col-md-4 p-0 feature">
 					<div class="feature-inner">
 						<div class="feature-icon">
-							<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/icons/2.png" alt="#">
+							<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/icons/2.png" alt=" albooms premium wedding albums" title="Premium Wedding Albums">
 						</div>
 						<h2>Premium Albums</h2>
 					</div>
@@ -72,9 +72,9 @@ get_header();
 				<div class="col-md-4 p-0 feature">
 					<div class="feature-inner">
 						<div class="feature-icon">
-							<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/icons/3.png" alt="#">
+							<img src="<?php bloginfo('stylesheet_directory');?>/assets/img/icons/3.png" alt="fast delivery" title="fast delivery">
 						</div>
-						<h2>Free & fast Delivery</h2>
+						<h2>Fast Delivery</h2>
 					</div>
 				</div>
 			</div>

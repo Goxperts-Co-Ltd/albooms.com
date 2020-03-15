@@ -19,21 +19,28 @@ $query = new WC_Product_Query(array(
                              $p_id = $product->id;
                              $p_name = $product->name;
                              $p_price = $product->price;
-                             $p_image = $product->image_id;
+							 $p_image = $product->image_id;
+							 $newness_days = 3;
+							 $created = strtotime( $product->get_date_created() );
         
                     ?>
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
 									<!-- <div class="tag-sale">ON SALE</div> -->
-									<img src="<?php echo wp_get_attachment_url($p_image); ?>" alt="<?php echo  $p_name;?>" title="<?php echo  $p_name;?>">
+									<?php 
+									if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) {
+										echo '<div class="tag-new">New</div>';
+									}
+									?>
+									<a href="<?php echo get_permalink($p_id);?>"><img src="<?php echo wp_get_attachment_url($p_image); ?>" alt="<?php echo  $p_name;?>" title="<?php echo  $p_name;?>"></a>
 									<div class="pi-links">
 										<a href="<?php echo get_permalink($p_id);?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 									</div>
 								</div>
 								<div class="pi-text">
-									<h6><?php echo $p_price;?></h6>
+								    <p><?php echo $product->get_price_html(); ?></p>
 									<p><a href="<?php echo get_permalink($p_id);?>"><?php echo  $p_name;?></a></p>
 								</div>
 							</div>
